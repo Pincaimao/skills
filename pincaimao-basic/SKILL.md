@@ -10,7 +10,7 @@ metadata:
     homepage: https://www.pincaimao.com
     requires:
       env:
-        - PCM_ANY_KEY
+        - PCM_ANY_KEY  # General-purpose key for non-chat endpoints. Agent-specific keys (e.g. PCM_JD_ASSISTANT_KEY) are declared in each agent skill.
       bins:
         - curl
         - python3
@@ -30,8 +30,8 @@ metadata:
 | 其他所有接口 | 任意创建的 key 均可 |
 
 ```bash
-# chat-messages 示例
--H "Authorization: Bearer $PCM_XXX_KEY"   # 使用智能体专属 key
+# chat-messages 示例（key 由各智能体 skill 的 primaryEnv 声明，如 PCM_JD_ASSISTANT_KEY）
+-H "Authorization: Bearer <agent-specific-key>"
 
 # 其他接口示例
 -H "Authorization: Bearer $PCM_ANY_KEY"   # 任意 key 即可
@@ -94,7 +94,7 @@ metadata:
 
 ```bash
 curl -N -s -X POST 'https://api.pincaimao.com/agents/v1/chat/chat-messages' \
-  -H "Authorization: Bearer $PCM_XXX_KEY" \
+  -H "Authorization: Bearer <agent-specific-key>" \
   -H 'Accept: text/event-stream' \
   -H 'Content-Type: application/json' \
   -d '{"query":"...","inputs":{},"response_mode":"streaming"}' \
