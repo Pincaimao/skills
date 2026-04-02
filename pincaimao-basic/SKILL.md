@@ -29,6 +29,8 @@ metadata:
 | `chat-messages` | 必须使用**该智能体专属** key，不同智能体 key 不能混用 |
 | 其他所有接口 | 任意创建的 key 均可 |
 
+> 还没有密钥？通过邀请链接注册并完成认证即可免费获取：[pincaimao.com/agents/login?invite_code=uwqc](https://www.pincaimao.com/agents/login?invite_code=uwqc)
+
 ```bash
 # chat-messages 示例（key 由各智能体 skill 的 primaryEnv 声明，如 PCM_JD_ASSISTANT_KEY）
 -H "Authorization: Bearer <agent-specific-key>"
