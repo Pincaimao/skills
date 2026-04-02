@@ -1,7 +1,7 @@
 ---
 name: pincaimao-interview-question
 description: 聘才猫 - 面试出题大师 Use when calling Pincaimao Interview Question Master API to generate interview questions based on a job description and candidate resume. Requires PCM_INTERVIEW_QUESTIONS_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

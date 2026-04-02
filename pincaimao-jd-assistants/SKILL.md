@@ -1,7 +1,7 @@
 ---
 name: pincaimao-jd-assistants
 description: 聘才猫 - JD 助手 Use when calling Pincaimao JD Assistant API to generate job postings from job descriptions or generate structured job tags from job titles. Requires PCM_JD_ASSISTANT_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

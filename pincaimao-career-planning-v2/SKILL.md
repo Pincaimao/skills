@@ -1,7 +1,7 @@
 ---
 name: pincaimao-career-planning-v2
 description: 聘才猫 - 职业规划助手 V2 Use when calling Pincaimao Career Planning Assistant V2 API to generate career advice based on a resume and advice type. Requires PCM_CAREER_PLANNING_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

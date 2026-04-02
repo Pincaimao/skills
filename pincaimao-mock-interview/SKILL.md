@@ -1,7 +1,7 @@
 ---
 name: pincaimao-mock-interview
 description: 聘才猫 - 模拟面试 Use when calling Pincaimao Mock Interview API to simulate a real interview scenario with multi-turn conversation. Supports text and video modes, custom questions, role settings, and reference answers. Requires PCM_MOCK_INTERVIEW_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

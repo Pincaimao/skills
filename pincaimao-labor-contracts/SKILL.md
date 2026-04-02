@@ -1,7 +1,7 @@
 ---
 name: pincaimao-labor-contracts
 description: 聘才猫 - 劳动合同卫士 Use when calling Pincaimao Labor Contract Guard API to analyze a labor contract and generate an assessment report. Accepts either a contract file (cos_key) or contract text directly. Requires PCM_LABOR_CONTRACT_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

@@ -1,7 +1,7 @@
 ---
 name: pincaimao-interview-reports
 description: 聘才猫 - 面试报告 Use when calling Pincaimao Interview Report API to generate an interview report or coaching materials based on a job description and interview recording file. Requires PCM_INTERVIEW_REPORT_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

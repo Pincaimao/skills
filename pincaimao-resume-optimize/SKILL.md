@@ -1,7 +1,7 @@
 ---
 name: pincaimao-resume-optimize
 description: 聘才猫 - 简历优化 Use when calling Pincaimao Resume Optimization API to automatically optimize or rewrite resume content based on a target job description. Requires PCM_RESUME_OPTIMIZE_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

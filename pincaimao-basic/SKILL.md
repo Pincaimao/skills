@@ -1,7 +1,7 @@
 ---
 name: pincaimao-basic
 description: 聘才猫平台基础能力 Use when calling any Pincaimao platform API — file upload, presigned URL, conversation list, message history, audio-to-text, resume JSON upload, or the base chat-messages interface. Reference this skill before building any PCM agent skill.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

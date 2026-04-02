@@ -1,7 +1,7 @@
 ---
 name: pincaimao-online-interview
 description: 聘才猫 - 在线面试 Use when calling Pincaimao Online Interview API to conduct a multi-turn AI interview session. Supports text and video interview modes, custom question lists, and report callbacks. Requires PCM_ONLINE_INTERVIEW_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:

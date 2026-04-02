@@ -1,7 +1,7 @@
 ---
 name: pincaimao-resume-diagnosis
 description: 聘才猫 - 简历诊断 Use when calling Pincaimao Resume Diagnosis Assistant API to parse and diagnosis a candidate resume against a job description. Requires uploading the resume file first to get cos_key. Requires PCM_RESUME_DIAGNOSIS_KEY env var.
-version: 1.0.0
+version: 1.0.1
 allowed-tools:
   - Bash
 metadata:
