@@ -53,39 +53,52 @@ CONTRACT_FILE="/path/to/contract.docx"
 # Step 1: 上传合同文件
 UPLOAD=$(curl -s -X POST 'https://api.pincaimao.com/agents/v1/files/upload' \
   -H "Authorization: Bearer $PCM_LABOR_CONTRACT_KEY" \
-  -F "file=@$CONTRACT_FILE")
+  -F "file=@${CONTRACT_FILE}")
 COS_KEY=$(echo "$UPLOAD" | python3 -c "import sys,json; print(json.load(sys.stdin)['cos_key'])")
 
-# Step 2: 分析合同
-curl -s -X POST 'https://api.pincaimao.com/agents/v1/chat/chat-messages' \
-  -H "Authorization: Bearer $PCM_LABOR_CONTRACT_KEY" \
-  -H 'Content-Type: application/json' \
-  -d "{
-    \"query\": \"请对劳动合同进行分析\",
-    \"inputs\": {
-      \"file_url\": \"$COS_KEY\",
-      \"input\": \"\"
-    },
-    \"response_mode\": \"blocking\"
-  }" | python3 -c "import sys,json; print(json.load(sys.stdin)['answer'])"
+# Step 2: 分析合同（用 Python 构造 JSON，避免 shell 注入）
+python3 -c "
+import json, urllib.request, os, sys
+key = os.environ['PCM_LABOR_CONTRACT_KEY']
+payload = json.dumps({
+    'query': '请对劳动合同进行分析',
+    'inputs': {'file_url': sys.argv[1], 'input': ''},
+    'response_mode': 'blocking'
+}).encode()
+req = urllib.request.Request(
+    'https://api.pincaimao.com/agents/v1/chat/chat-messages',
+    data=payload,
+    headers={'Authorization': f'Bearer {key}', 'Content-Type': 'application/json'}
+)
+resp = json.loads(urllib.request.urlopen(req).read())
+print(resp['answer'])
+" "$COS_KEY"
 ```
 
 ### 方式二：直接传文本
 
 ```bash
-CONTRACT_TEXT="劳动合同\n甲方（用人单位）：深圳市创新科技有限公司\n乙方（劳动者）：..."
+CONTRACT_TEXT="劳动合同
+甲方（用人单位）：深圳市创新科技有限公司
+乙方（劳动者）：..."
 
-curl -s -X POST 'https://api.pincaimao.com/agents/v1/chat/chat-messages' \
-  -H "Authorization: Bearer $PCM_LABOR_CONTRACT_KEY" \
-  -H 'Content-Type: application/json' \
-  -d "{
-    \"query\": \"请对劳动合同进行分析\",
-    \"inputs\": {
-      \"file_url\": \"\",
-      \"input\": \"$CONTRACT_TEXT\"
-    },
-    \"response_mode\": \"blocking\"
-  }" | python3 -c "import sys,json; print(json.load(sys.stdin)['answer'])"
+# 用 Python 构造 JSON，CONTRACT_TEXT 作为参数传入，避免 shell 注入
+python3 -c "
+import json, urllib.request, os, sys
+key = os.environ['PCM_LABOR_CONTRACT_KEY']
+payload = json.dumps({
+    'query': '请对劳动合同进行分析',
+    'inputs': {'file_url': '', 'input': sys.argv[1]},
+    'response_mode': 'blocking'
+}).encode()
+req = urllib.request.Request(
+    'https://api.pincaimao.com/agents/v1/chat/chat-messages',
+    data=payload,
+    headers={'Authorization': f'Bearer {key}', 'Content-Type': 'application/json'}
+)
+resp = json.loads(urllib.request.urlopen(req).read())
+print(resp['answer'])
+" "$CONTRACT_TEXT"
 ```
 
 ## 常见错误
