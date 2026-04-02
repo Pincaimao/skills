@@ -99,5 +99,5 @@ clawhub install pincaimao-basic pincaimao-jd-assistants pincaimao-resume-diagnos
 ## 相关链接
 
 - 聘才猫官网：[pincaimao.com](https://www.pincaimao.com)
-- ClawHub 主页：[clawhub.ai/pincaimao](https://clawhub.ai/pincaimao)
+- ClawHub 主页：[clawhub.ai/orgs/pincaimao](https://clawhub.ai/orgs/pincaimao)
 - 开发文档：[pincaimao.com](https://www.pincaimao.com)
